@@ -41,11 +41,9 @@ class Zoo:
         self.name = name
         self.animals = []
 
-    #     1 реализовать метод добавления студента в группу
     def addAnimal(self, newAnimal):
         self.animals.append(newAnimal)
 
-    #     2 реализовать метод показа в консоль списка студентов этой группы
     def printAnimals(self):
         if self.animals != []:
             print("Name of the Zoo: ", self.name)
@@ -64,7 +62,6 @@ class Zoo:
         print("Kormlenie")
         self.to_eat
 
- #     3 реализовать метод симуляции жизни группы
     def simulateZoo(self):
         for st in self.animals:
             for day in range(365):
