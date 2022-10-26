@@ -58,10 +58,6 @@ class Zoo:
         except:
             print("There are no", delAnimal.name, "in this zoo ", self.name)
 
-    def kormlenie(self):
-        print("Kormlenie")
-        self.to_eat
-
     def simulateZoo(self):
         for st in self.animals:
             for day in range(365):
