@@ -1,35 +1,97 @@
-import colorama
+# try:
+#    assert 2+2 == 5, "wrong result"
+# except AssertionError as error:
+#     print("Heppend some error ", error)
 
-#Меняет цвет, фон и яркость текста
+# Unit test - нужны для того что бы проверить основной код на стабильную работу в разных ситуациях
 
-from colorama import init
-init()
-from colorama import Fore, Back, Style
-print(Fore.GREEN + "зеленый текст")
-print(Back.YELLOW + "на желтом фоне")
-print(Style.BRIGHT + "стал ярче" + Style.RESET_ALL)
-print("обычный текст")
+def add(*args, **kwargs):    # *args - специальный параметр который может обезпечить передачу множества аргументов функции
+    result = 0
+    for arg in args:
+        if type(arg) == int or type(arg) == bool or type(arg) == float:
+            result += arg
+        else:
+            try:
+                result += float(arg)
+                continue
+            except (ValueError, TypeError):
+                pass
+    for arg in kwargs.values():
+        if type(arg) == int or type(arg) == bool or type(arg) == float:
+            result += arg
+        else:
+            try:
+                result += float(arg)
+                continue
+            except (ValueError, TypeError):
+                pass
+    return result
 
-#Так же все описаное в прошлом пункте можно сделать так
+def minus(*args, **kwargs):
+    result = 0
+    for arg in args:
+        if type(arg) == int or type(arg) == bool or type(arg) == float:
+            result -= arg
+        else:
+            try:
+                result -= float(arg)
+                continue
+            except (ValueError, TypeError):
+                pass
+    for arg in kwargs.values():
+        if type(arg) == int or type(arg) == bool or type(arg) == float:
+            result -= arg
+        else:
+            try:
+                result -= float(arg)
+                continue
+            except (ValueError, TypeError):
+                pass
+    return result
 
-print("\033[31m" + "красный текст")
-print("\033[39m")
+def multiply(*args, **kwargs):
+    result = 0
+    for arg in args:
+        if type(arg) == int or type(arg) == bool or type(arg) == float:
+            result *= arg
+        else:
+            try:
+                result *= float(arg)
+                continue
+            except (ValueError, TypeError):
+                pass
+    for arg in kwargs.values():
+        if type(arg) == int or type(arg) == bool or type(arg) == float:
+            result *= arg
+        else:
+            try:
+                result *= float(arg)
+                continue
+            except (ValueError, TypeError):
+                pass
+    return result
+
+def devide(*args, **kwargs):
+    result = 0
+    for arg in args:
+        if type(arg) == int or type(arg) == bool or type(arg) == float:
+            result /= arg
+        else:
+            try:
+                result /= float(arg)
+                continue
+            except (ValueError, TypeError):
+                pass
+    for arg in kwargs.values():
+        if type(arg) == int or type(arg) == bool or type(arg) == float:
+            result /= arg
+        else:
+            try:
+                result /= float(arg)
+                continue
+            except (ValueError, TypeError):
+                pass
+    return result
 
 
-#Если в начале указать что текст должен терять все еффекты
-#то при следуйщем принте они уйдут
 
-from colorama import init, Fore
-init(autoreset=True)
-print(Fore.GREEN + "зеленый текст")
-print("автоматический возврат к обычному")
-
-
-
-#А вот все цвета, фоны, яркости текста
-# // цвет текста
-# Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
-# // цвет фона
-# Back: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
-# // яркость текста и общий сброс
-# Style: DIM, NORMAL, BRIGHT, RESET_ALL
